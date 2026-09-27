@@ -529,9 +529,6 @@
             <mxPoint x="297.5" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jCNAXOl2P5D8KI3XK9FK-4" edge="1" parent="Hi5rCrygoW0TQS6cjJU6-2" source="Hi5rCrygoW0TQS6cjJU6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="jCNAXOl2P5D8KI3XK9FK-0">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="Hi5rCrygoW0TQS6cjJU6-10" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rounded=1;whiteSpace=wrap;html=1;" value="Isi kata pencarian" vertex="1">
           <mxGeometry height="60" width="120" x="237.5" y="400" as="geometry" />
         </mxCell>
@@ -539,12 +536,6 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="297.5" y="340" as="sourcePoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="EhBEzYrHnA8xWLNTVj9F-0" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Ingin mencari?" vertex="1">
-          <mxGeometry height="80" width="80" x="257.5" y="275" as="geometry" />
-        </mxCell>
-        <mxCell id="jCNAXOl2P5D8KI3XK9FK-0" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rounded=1;whiteSpace=wrap;html=1;" value="Menekkan tombol cari" vertex="1">
-          <mxGeometry height="60" width="120" x="237.5" y="510" as="geometry" />
         </mxCell>
         <mxCell id="Hi5rCrygoW0TQS6cjJU6-23" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rounded=1;whiteSpace=wrap;html=1;" value="Menekan tombol simpan" vertex="1">
           <mxGeometry height="60" width="120" x="160" y="870" as="geometry" />
@@ -562,6 +553,15 @@
         </mxCell>
         <mxCell id="Hi5rCrygoW0TQS6cjJU6-56" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rounded=1;whiteSpace=wrap;html=1;" value="Menekan tombol hapus pada data kategori" vertex="1">
           <mxGeometry height="60" width="120" x="267.5" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="jCNAXOl2P5D8KI3XK9FK-4" edge="1" parent="Hi5rCrygoW0TQS6cjJU6-2" source="Hi5rCrygoW0TQS6cjJU6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="jCNAXOl2P5D8KI3XK9FK-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EhBEzYrHnA8xWLNTVj9F-0" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;" value="Ingin mencari?" vertex="1">
+          <mxGeometry height="80" width="80" x="257.5" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="jCNAXOl2P5D8KI3XK9FK-0" parent="Hi5rCrygoW0TQS6cjJU6-2" style="rounded=1;whiteSpace=wrap;html=1;" value="Menekkan tombol cari" vertex="1">
+          <mxGeometry height="60" width="120" x="237.5" y="510" as="geometry" />
         </mxCell>
         <mxCell id="Hi5rCrygoW0TQS6cjJU6-15" parent="Hi5rCrygoW0TQS6cjJU6-1" style="swimlane;whiteSpace=wrap;html=1;" value="Sistem" vertex="1">
           <mxGeometry height="1670" width="1065" x="765" y="200" as="geometry" />
@@ -779,9 +779,6 @@
         <mxCell id="Hi5rCrygoW0TQS6cjJU6-72" edge="1" parent="Hi5rCrygoW0TQS6cjJU6-1" source="Hi5rCrygoW0TQS6cjJU6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="Hi5rCrygoW0TQS6cjJU6-10">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="jCNAXOl2P5D8KI3XK9FK-2" edge="1" parent="Hi5rCrygoW0TQS6cjJU6-1" source="jCNAXOl2P5D8KI3XK9FK-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="jCNAXOl2P5D8KI3XK9FK-1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="Hi5rCrygoW0TQS6cjJU6-21" parent="Hi5rCrygoW0TQS6cjJU6-1" style="rounded=1;whiteSpace=wrap;html=1;" value="isi data kategori" vertex="1">
           <mxGeometry height="60" width="120" x="330" y="970" as="geometry" />
         </mxCell>
@@ -819,6 +816,9 @@
             <mxPoint x="1712.1" y="940" as="sourcePoint" />
             <mxPoint x="497.5" y="1230" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="jCNAXOl2P5D8KI3XK9FK-2" edge="1" parent="Hi5rCrygoW0TQS6cjJU6-1" source="jCNAXOl2P5D8KI3XK9FK-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="jCNAXOl2P5D8KI3XK9FK-1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -1147,7 +1147,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Kelola data peminjaman" id="xmYehKdA0aJc3O9UrqvJ">
-    <mxGraphModel dx="2002" dy="1072" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="QxaIPlhbUibVCSRXTMHX-0" />
         <mxCell id="QxaIPlhbUibVCSRXTMHX-1" parent="QxaIPlhbUibVCSRXTMHX-0" />
@@ -1424,7 +1424,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Kelola data pengembalian" id="Gf3GySHfCsrIy8lrNPXH">
-    <mxGraphModel dx="3431" dy="1837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="_CV_LpnKoJVc0gHIrOp3-0" />
         <mxCell id="_CV_LpnKoJVc0gHIrOp3-1" parent="_CV_LpnKoJVc0gHIrOp3-0" />
@@ -1648,7 +1648,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Log aktivitas" id="XJdU5OXUy-ROtKK-AOB5">
-    <mxGraphModel dx="2669" dy="1429" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="gHMDZug8pl8BwVqTr6cv-0" />
         <mxCell id="gHMDZug8pl8BwVqTr6cv-1" parent="gHMDZug8pl8BwVqTr6cv-0" />
