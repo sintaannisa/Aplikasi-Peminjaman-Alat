@@ -172,7 +172,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Kelola data user" id="V0tRtL6skaxC6PAe7fbf">
-    <mxGraphModel dx="2669" dy="1429" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="t9DXBsdvV1w1w0baaB62-0" />
         <mxCell id="t9DXBsdvV1w1w0baaB62-1" parent="t9DXBsdvV1w1w0baaB62-0" />
@@ -1147,7 +1147,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Kelola data peminjaman" id="xmYehKdA0aJc3O9UrqvJ">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+    <mxGraphModel dx="1413" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
       <root>
         <mxCell id="QxaIPlhbUibVCSRXTMHX-0" />
         <mxCell id="QxaIPlhbUibVCSRXTMHX-1" parent="QxaIPlhbUibVCSRXTMHX-0" />
