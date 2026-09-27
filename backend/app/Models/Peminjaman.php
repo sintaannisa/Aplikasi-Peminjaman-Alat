@@ -26,7 +26,7 @@ class Peminjaman extends Model
         return $this->belongsTo (User::class);
     }
 
-    public function detailPinjams() : HasMany {
+    public function detailPinjam() : HasMany {
         return $this->hasMany (DetailPinjam::class);
     }
 

@@ -72,4 +72,22 @@ class PeminjamanController extends Controller
 
         return view('peminjam.riwayat', compact('peminjamans'));
     }
+
+    //Menolak Peminjaman (Menghaous data pengajuan agar siswa bisa mengajukan ulang)
+    public function tolakPeminjaman($id)
+    {
+        try {
+            $peminjaman = Peminjaman::findOrFail($id);
+
+            //pastikan statusnya memang masih diajukan
+            if ($peminjam->status == 'diajukan') {
+                $peminjam->delete();
+                return redirect()->back()->with('succes', 'Pengajuan peminjaman berhasil ditolak.');
+            }
+
+            return redirect()->back()->with('error', 'Status peminjaman sudah berubah.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan:' . $e->getMessage());
+        }
+    }
 }

@@ -45,24 +45,42 @@ Route::middleware(['auth', 'role.admin'])->prefix('admin')->name('admin.')->grou
         Route::put('/peminjaman/{id}/status', [AdminController::class, 'updateStatusPeminjaman'])->name('peminjaman.updateStatus');
         Route::delete('/peminjaman/{id}', [AdminController::class, 'destroyPeminjaman'])->name('peminjaman.destroy');
 
+        //CRUD Pengembalian
+        Route::get('/pengembalian', [AdminController::class, 'indexPengembalian'])->name('pengembalian.index');
+        Route::get('/pengembalian/create', [AdminController::class, 'createPengembalian'])->name('pengembalian.create');
+        Route::post('/pengembalian', [AdminController::class, 'storePengembalian'])->name('pengembalian.store');
+        Route::delete('/pengembalian/{id}', [AdminController::class, 'destroyPengembalian'])->name('pengembalian.destroy');
+
+        
+
         });
 
 // Petugas
-Route::middleware(['auth', 'role.petugas'])
-    ->prefix('petugas')
-    ->name('petugas.')
-    ->group(function () {
+    Route::middleware(['auth', 'role.petugas'])
+        ->prefix('petugas')
+        ->name('petugas.')
+        ->group(function () {
 
         // Peminjaman & Persetujuan
-        Route::get('/peminjaman', [PetugasController::class, 'indexPeminjaman'])
-            ->name('peminjaman.index');
+        Route::get('/peminjaman', [PetugasController::class, 'indexPeminjaman'])->name('peminjaman.index');
+        Route::post('/peminjaman/{id}/setujui', [PetugasController::class, 'setujuiPeminjaman'])->name('peminjaman.setujui');
+        Route::post('/peminjaman/{id}/tolak', [PetugasController::class, 'tolakPeminjaman'])->name('peminjaman.tolak');
 
-        Route::post('/peminjaman/{id}/setujui', [PetugasController::class, 'setujuiPeminjaman'])
-            ->name('peminjaman.setujui');
+        
+
+       
+        
 
         // Pengembalian & Denda
-        Route::post('/pengembalian/{id}', [PetugasController::class, 'prosesPengembalian'])
-            ->name('pengembalian.proses');
+        Route::post('/pengembalian/{id}', [PetugasController::class, 'prosesPengembalian'])->name('pengembalian.proses');
+        Route::get('/pengembalian', [PetugasController::class, 'indexPengembalian'])->name('pengembalian.index');
+        
+        // Cetak laporan
+        Route::get('/laporan', [PetugasController::class, 'laporan'])->name('laporan.index');
+        Route::get('/laporan/cetak', [PetugasController::class, 'cetakLaporan'])->name('laporan.cetak');
+
+        
+                
     });
 
 // Peminjam

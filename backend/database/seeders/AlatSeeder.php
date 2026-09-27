@@ -18,8 +18,7 @@ class AlatSeeder extends Seeder
                 'nama_alat' => 'Router Mikrotik RB941-2nD', 
                 'stok' => 15, 
                 'status_kondisi' => 'Baik', 
-                'deskripsi' => 'Router nirkabel rumahan yang cocok untuk 
-praktik jaringan dasar.', 
+                'deskripsi' => 'Router nirkabel rumahan yang cocok untuk praktik jaringan dasar.', 
                 'gambar' => 'mikrotik_rb941.jpg', 
             ], 
             [ 
@@ -27,8 +26,7 @@ praktik jaringan dasar.',
                 'nama_alat' => 'Kamera DSLR Canon EOS 3000D', 
                 'stok' => 5, 
                 'status_kondisi' => 'Baik', 
-                'deskripsi' => 'Kamera pemula untuk kebutuhan dokumentasi 
-dan pembuatan aset media.', 
+                'deskripsi' => 'Kamera pemula untuk kebutuhan dokumentasi dan pembuatan aset media.', 
                 'gambar' => 'canon_3000d.jpg', 
             ], 
             [ 
@@ -36,8 +34,7 @@ dan pembuatan aset media.',
                 'nama_alat' => 'Mini PC Intel NUC 11', 
                 'stok' => 8, 
                 'status_kondisi' => 'Baik', 
-                'deskripsi' => 'Perangkat komputasi ringkas untuk server 
-lokal skala kecil.', 
+                'deskripsi' => 'Perangkat komputasi ringkas untuk server lokal skala kecil.', 
                 'gambar' => 'intel_nuc.jpg', 
             ], 
             [ 
@@ -45,8 +42,7 @@ lokal skala kecil.',
                 'nama_alat' => 'Tang Crimping RJ45/RJ11 Proskit', 
                 'stok' => 20, 
                  'status_kondisi' => 'Baik', 
-                'deskripsi' => 'Alat potong dan pasang konektor kabel 
-UTP.', 
+                'deskripsi' => 'Alat potong dan pasang konektor kabel UTP.', 
                 'gambar' => 'crimping_proskit.jpg', 
             ], 
             [
@@ -55,8 +51,7 @@ UTP.',
                 'nama_alat' => 'Adapter HDMI to VGA dengan Audio', 
                 'stok' => 25, 
                 'status_kondisi' => 'Baik', 
-                'deskripsi' => 'Konverter display untuk menyambungkan 
-perangkat modern ke proyektor lama.', 
+                'deskripsi' => 'Konverter display untuk menyambungkan perangkat modern ke proyektor lama.', 
                 'gambar' => 'hdmi_vga.jpg', 
             ], 
         ]; 
