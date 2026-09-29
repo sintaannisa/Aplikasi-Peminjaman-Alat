@@ -15,7 +15,7 @@
                     <option value="">Semua Status</option>
                     <option value="diajukan" {{ request('status') == 'diajukan' ? 'selected' : '' }}>Diajukan</option>
                     <option value="dipinjam" {{ request('status') == 'dipinjam' ? 'selected' : '' }}>Dipinjam</option>
-                    <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                    <option value="dikembalikan" {{ request('status') == 'dikembalikan' ? 'selected' : '' }}>Dikembalikan</option>
                     <option value="telat" {{ request('status') == 'telat' ? 'selected' : '' }}>Telat</option>
                 </select>
             </div>
@@ -69,11 +69,15 @@
                         <tr class="hover:bg-gray-50 transition align-top">
                             <td class="py-3 px-4 border-b">{{ $index + 1 }}</td>
                             <td class="py-3 px-4 border-b font-medium text-gray-900">{{ $item->user->name ?? '-' }}</td>
-                            <td class="py-3 px-4 border-b">{{ $item->tgl_pinjam }}</td>
-                            <td class="py-3 px-4 border-b">{{ $item->tgl_kembali_plan }}</td>
+                            <td class="py-3 px-4 border-b">
+                                {{ \Carbon\Carbon::parse($item->tgl_pinjam)->format('d-m-Y') }}
+                            </td>
+                            <td class="py-3 px-4 border-b">
+                                {{ \Carbon\Carbon::parse($item->tgl_kembali_plan)->format('d-m-Y') }}
+                            </td>
                             <td class="py-3 px-4 border-b">
                                 <span class="px-2.5 py-1 rounded text-xs font-semibold
-                                    {{ $item->status == 'selesai' ? 'bg-emerald-100 text-emerald-700' : '' }}
+                                    {{ $item->status == 'dikembalikan' ? 'bg-emerald-100 text-emerald-700' : '' }}
                                     {{ $item->status == 'dipinjam' ? 'bg-blue-100 text-blue-700' : '' }}
                                     {{ $item->status == 'telat' ? 'bg-red-100 text-red-700' : '' }}
                                     {{ $item->status == 'diajukan' ? 'bg-yellow-100 text-yellow-700' : '' }}">

@@ -23,7 +23,7 @@ class PeminjamanController extends Controller
     public function ajukanPeminjaman(Request $request)
     {
         $request->validate([
-            'tgl_kembali_plan' => 'required|date|today',
+            'tgl_kembali_plan' => 'required|date|after_or_equal:today',
             'alat_id' => 'required|array',
             'jumlah' => 'required|array',
         ]);
@@ -65,7 +65,7 @@ class PeminjamanController extends Controller
     // Melihat riwayat peminjaman user yang sedang login
     public function riwayatPeminjaman()
     {
-        $peminjamans = Peminjaman::with('detailPinjams.alat')
+        $peminjamans = Peminjaman::with('detailPinjam.alat')
             ->where('user_id', auth()->id())
             ->latest()
             ->get();
@@ -77,12 +77,13 @@ class PeminjamanController extends Controller
     public function tolakPeminjaman($id)
     {
         try {
-            $peminjaman = Peminjaman::findOrFail($id);
-
+          $peminjaman = Peminjaman::where('id', $id)
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
             //pastikan statusnya memang masih diajukan
-            if ($peminjam->status == 'diajukan') {
-                $peminjam->delete();
-                return redirect()->back()->with('succes', 'Pengajuan peminjaman berhasil ditolak.');
+            if ($peminjaman->status == 'diajukan') {
+                $peminjaman->delete();
+                return redirect()->back()->with('success', 'Pengajuan peminjaman berhasil ditolak.');
             }
 
             return redirect()->back()->with('error', 'Status peminjaman sudah berubah.');

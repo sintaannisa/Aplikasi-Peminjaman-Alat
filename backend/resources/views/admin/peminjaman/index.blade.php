@@ -72,9 +72,14 @@
                                 </ul>
                             </td>
                             <td class="py-3 px-4 border-b text-xs text-gray-600">
-                                <span class="block">Pinjam: {{ $peminjaman->tgl_pinjam }}</span>
-                                <span class="block font-semibold">Rencana: {{ $peminjaman->tgl_kembali_plan }}</span>
-                            </td>
+                               <span class="block">
+                                    Pinjam: {{ \Carbon\Carbon::parse($peminjaman->tgl_pinjam)->format('d-m-Y') }}
+                                </span>
+
+                                <span class="block font-semibold">
+                                    Rencana: {{ \Carbon\Carbon::parse($peminjaman->tgl_kembali_plan)->format('d-m-Y') }}
+                                </span>
+                                
                             <td class="py-3 px-4 border-b">
                                 <span class="px-2.5 py-1 text-xs font-semibold rounded-full
                                     @if($peminjaman->status == 'diajukan') bg-yellow-100 text-yellow-800

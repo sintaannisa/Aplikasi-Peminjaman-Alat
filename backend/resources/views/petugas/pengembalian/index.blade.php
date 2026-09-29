@@ -51,8 +51,12 @@
                             <td class="py-3 px-4 border-b font-medium text-gray-900">
                                 {{ $item->user->name ?? 'User Dihapus' }}
                             </td>
-                            <td class="py-3 px-4 border-b">{{ $item->tgl_pinjam }}</td>
-                            <td class="py-3 px-4 border-b">{{ $item->tgl_kembali_plan }}</td>
+                            <td class="py-3 px-4 border-b">
+                                {{ \Carbon\Carbon::parse($item->tgl_pinjam)->format('d-m-Y') }}
+                            </td>
+                            <td class="py-3 px-4 border-b">
+                                  {{ \Carbon\Carbon::parse($item->tgl_kembali_plan)->format('d-m-Y') }}
+                            </td>
                             <td class="py-3 px-4 border-b">
                                 <span class="px-2.5 py-1 rounded text-xs font-semibold {{ $item->status == 'telat' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700' }}">
                                     {{ ucfirst($item->status) }}

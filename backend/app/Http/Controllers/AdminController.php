@@ -373,7 +373,7 @@ class AdminController extends Controller
     // 4. Memperbarui status peminjaman (Misal: dari diajukan -> dipinjam / selesai)
     public function updateStatusPeminjaman(Request $request, $id)
     {
-        $peminjaman = Peminjaman::with('detailPinjams.alat')->findOrFail($id);
+        $peminjaman = Peminjaman::with('detailPinjam.alat')->findOrFail($id);
 
         $request->validate([
             'status' => 'required|in:diajukan,dipinjam,dikembalikan,telat',
@@ -388,7 +388,7 @@ class AdminController extends Controller
             // Logika pengelolaan stok otomatis
             if ($statusLama != 'dipinjam' && $statusBaru == 'dipinjam') {
                 // Kurangi stok karena barang resmi dipinjam
-                foreach ($peminjaman->detailPinjams as $detail) {
+                foreach ($peminjaman->detailPinjam as $detail) {
                     $alat = $detail->alat;
 
                     if ($alat->stok < $detail->jumlah) {
@@ -399,7 +399,7 @@ class AdminController extends Controller
                 }
             } elseif ($statusLama == 'dipinjam' && ($statusBaru == 'dikembalikan')) {
                 // Kembalikan stok karena sudah dikembalikan (selesai)
-                foreach ($peminjaman->detailPinjams as $detail) {
+                foreach ($peminjaman->detailPinjam as $detail) {
                     $detail->alat->increment('stok', $detail->jumlah);
                 }
             }
@@ -419,11 +419,11 @@ class AdminController extends Controller
     // 5. Menghapus data peminjaman
     public function destroyPeminjaman($id)
     {
-        $peminjaman = Peminjaman::with('detailPinjams')->findOrFail($id);
+        $peminjaman = Peminjaman::with('detailPinjam')->findOrFail($id);
 
         // Jika statusnya sedang dipinjam, kembalikan stok terlebih dahulu sebelum dihapus
         if ($peminjaman->status == 'dipinjam') {
-            foreach ($peminjaman->detailPinjams as $detail) {
+            foreach ($peminjaman->detailPinjam as $detail) {
                 $detail->alat->increment('stok', $detail->jumlah);
             }
         }
@@ -475,7 +475,7 @@ class AdminController extends Controller
 
         DB::beginTransaction();
         try {
-            $peminjaman = Peminjaman::with('detailPinjams.alat')->findOrFail($request->peminjaman_id);
+            $peminjaman = Peminjaman::with('detailPinjam.alat')->findOrFail($request->peminjaman_id);
 
             // Hitung keterlambatan otomatis (dalam hari)
             $tglPlan = \Carbon\Carbon::parse($peminjaman->tgl_kembali_plan);
@@ -506,7 +506,7 @@ class AdminController extends Controller
             $peminjaman->update(['status' => 'dikembalikan']);
 
             // Kembalikan stok alat ke inventaris
-            foreach ($peminjaman->detailPinjams as $detail) {
+            foreach ($peminjaman->detailPinjam as $detail) {
                 $detail->alat->increment('stok', $detail->jumlah);
             }
 
@@ -522,7 +522,7 @@ class AdminController extends Controller
     // 4. Menghapus data pengembalian
     public function destroyPengembalian($id)
     {
-        $pengembalian = Pengembalian::with('peminjaman.detailPinjams.alat')->findOrFail($id);
+        $pengembalian = Pengembalian::with('peminjaman.detailPinjam.alat')->findOrFail($id);
 
         DB::beginTransaction();
         try {
@@ -531,7 +531,7 @@ class AdminController extends Controller
             // Jika data pengembalian dihapus, kembalikan status peminjaman jadi 'dipinjam' dan kurangi kembali stoknya
             if ($peminjaman) {
                 $peminjaman->update(['status' => 'dipinjam']);
-                foreach ($peminjaman->detailPinjams as $detail) {
+                foreach ($peminjaman->detailPinjam as $detail) {
                     $detail->alat->decrement('stok', $detail->jumlah);
                 }
             }

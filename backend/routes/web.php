@@ -98,6 +98,9 @@ Route::middleware(['auth', 'role.peminjam'])
 
         Route::get('/riwayat', [PeminjamanController::class, 'riwayatPeminjaman'])
             ->name('riwayat');
+        
+        Route::delete('/peminjaman/{id}', [PeminjamanController::class, 'tolakPeminjaman'])
+            ->name('peminjaman.tolak');
     });
 
 // Route Tamu (Belum Login)
