@@ -188,4 +188,35 @@ public function cetakLaporan(Request $request)
             );
         }
     }
+
+   // Dashboard Petugas
+    public function dashboard()
+    {
+        $totalPeminjaman = Peminjaman::count();
+
+        $pengajuan = Peminjaman::where('status', 'diajukan')->count();
+
+        $sedangDipinjam = Peminjaman::where('status', 'dipinjam')->count();
+
+        $terlambat = Peminjaman::where('status', 'telat')->count();
+
+        $dikembalikan = Peminjaman::where('status', 'dikembalikan')->count();
+
+        $totalAlat = Alat::count();
+
+        $peminjamanTerbaru = Peminjaman::with('user')
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('petugas.dashboard', compact(
+            'totalPeminjaman',
+            'pengajuan',
+            'sedangDipinjam',
+            'terlambat',
+            'dikembalikan',
+            'totalAlat',
+            'peminjamanTerbaru'
+        ));
+    }
 }

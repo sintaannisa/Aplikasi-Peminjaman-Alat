@@ -79,7 +79,7 @@ Route::middleware(['auth', 'role.admin'])->prefix('admin')->name('admin.')->grou
         Route::get('/laporan', [PetugasController::class, 'laporan'])->name('laporan.index');
         Route::get('/laporan/cetak', [PetugasController::class, 'cetakLaporan'])->name('laporan.cetak');
 
-        
+         Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard');
                 
     });
 

@@ -70,6 +70,11 @@
                 @elseif(auth()->user()->role === 'petugas')
 
                     <!-- ================= MENU PETUGAS ================= -->
+                    <a href="{{ route('petugas.dashboard') }}"
+                        class="block px-4 py-2 rounded-lg transition
+                        {{ request()->routeIs('petugas.dashboard') ? 'bg-gray-800 text-white font-medium' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                        Dashboard
+                    </a>
 
                     <a href="{{ route('petugas.peminjaman.index') }}"
                         class="block px-4 py-2 rounded-lg transition
@@ -89,7 +94,6 @@
                         Buat Laporan
                     </a>
 
-                @endif
 
                 @elseif(auth()->user()->role === 'peminjam')
               
@@ -106,8 +110,13 @@
                         {{ request()->routeIs('peminjam.riwayat') ? 'bg-gray-800 text-white font-medium' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                         Riwayat Peminjaman
                     </a>
+
+                  
+                
+                @endif
             </nav>
 
+            
 
             <!-- USER LOGIN -->
             <div class="p-4 border-t border-gray-800 text-sm text-gray-400">
