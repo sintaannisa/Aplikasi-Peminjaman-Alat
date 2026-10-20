@@ -79,7 +79,8 @@ Route::middleware(['auth', 'role.admin'])->prefix('admin')->name('admin.')->grou
         Route::get('/laporan', [PetugasController::class, 'laporan'])->name('laporan.index');
         Route::get('/laporan/cetak', [PetugasController::class, 'cetakLaporan'])->name('laporan.cetak');
 
-         Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard');
+        Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard');
+        Route::post('/peminjaman/{id}/pengembalian', [PeminjamanController::class, 'ajukanPengembalian'])->name('peminjaman.pengembalian');
                 
     });
 
@@ -101,6 +102,8 @@ Route::middleware(['auth', 'role.peminjam'])
         
         Route::delete('/peminjaman/{id}', [PeminjamanController::class, 'tolakPeminjaman'])
             ->name('peminjaman.tolak');
+        
+        Route::post( '/peminjaman/{id}/pengembalian', [PeminjamanController::class, 'ajukanPengembalian'])->name('peminjaman.pengembalian');
     });
 
 // Route Tamu (Belum Login)

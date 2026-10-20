@@ -210,27 +210,26 @@ class AdminController extends Controller
     }
 
     // Menghapus user
-    public function destroyUser($id)
-    {
-        $user = User::findOrFail($id);
-        $user->delete();
+    
+/** Menghapus user */
+public function destroyUser($id)
+{
+    $user = User::findOrFail($id);
 
-        return redirect()->route('admin.user.index')->with('success', 'User berhasil dihapus.');
+    // Mencegah admin menghapus akun sendiri
+    if ($user->id === auth()->id()) {
+        return redirect()
+            ->route('admin.user.index')
+            ->with('error', 'Anda tidak dapat menghapus akun sendiri.');
     }
 
-    public function indexKategori(Request $request)
-    {
-        $search = $request->input('search');
+    $user->delete();
 
-        $kategoris = Kategori::when($search, function ($query, $search) {
-            return $query->where('nama_kategori', 'like', "%{$search}%");
-        })
-        ->latest()
-        ->paginate(5)
-        ->withQueryString();
+    return redirect()
+        ->route('admin.user.index')
+        ->with('success', 'User berhasil dihapus.');
+}
 
-        return view('admin.kategori.index', compact('kategoris', 'search'));
-    }
 
     // 2. Menampilkan form tambah kategori
     public function createKategori()

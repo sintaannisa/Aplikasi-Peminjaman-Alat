@@ -125,22 +125,30 @@
                                         Edit
                                     </a>
 
-                                    <!-- Tombol Hapus -->
-                                    <form
-                                        action="{{ route('admin.user.destroy', $user->id) }}"
-                                        method="POST"
-                                        onsubmit="return confirm('Yakin ingin menghapus user ini?')">
+                                   
+                                    {{-- Tombol Hapus --}}
+                                    @if($user->id !== auth()->id())
+                                        <form
+                                            action="{{ route('admin.user.destroy', $user->id) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('Yakin ingin menghapus user ini?')"
+                                        >
+                                            @csrf
+                                            @method('DELETE')
 
-                                        @csrf
-                                        @method('DELETE')
+                                            <button
+                                                type="submit"
+                                                class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-xs font-semibold transition"
+                                            >
+                                                Hapus
+                                            </button>
+                                        </form>
+                                    @else
+                                        <span class="text-xs text-gray-500">
+                                            Akun Anda
+                                        </span>
+                                    @endif
 
-                                        <button
-                                            type="submit"
-                                            class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-xs font-semibold transition">
-                                            Hapus
-                                        </button>
-
-                                    </form>
 
                                 </div>
 

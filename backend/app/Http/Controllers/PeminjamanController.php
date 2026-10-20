@@ -83,12 +83,58 @@ class PeminjamanController extends Controller
             //pastikan statusnya memang masih diajukan
             if ($peminjaman->status == 'diajukan') {
                 $peminjaman->delete();
-                return redirect()->back()->with('success', 'Pengajuan peminjaman berhasil ditolak.');
+                return redirect()->back()->with('success', 'Pengajuan peminjaman berhasil dibatalkan.');
             }
 
             return redirect()->back()->with('error', 'Status peminjaman sudah berubah.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan:' . $e->getMessage());
+        }
+    }
+
+    // Mengajukan permintaan pengembalian alat
+    public function ajukanPengembalian($id)
+    {
+        try {
+
+            $peminjaman = Peminjaman::where('id', $id)
+                ->where('user_id', auth()->id())
+                ->firstOrFail();
+
+            // Hanya peminjaman yang sedang dipinjam yang bisa diajukan
+            if (!in_array($peminjaman->status, ['dipinjam', 'telat'])) {
+                return redirect()
+                    ->back()
+                    ->with('error', 'Peminjaman ini belum dapat diajukan untuk pengembalian.');
+            }
+
+            // Cek apakah sudah pernah mengajukan
+            if ($peminjaman->pengembalian_diajukan) {
+                return redirect()
+                    ->back()
+                    ->with('error', 'Pengembalian sudah diajukan kepada petugas.');
+            }
+
+            // Tandai bahwa peminjam ingin mengembalikan alat
+            $peminjaman->update([
+                'pengembalian_diajukan' => true
+            ]);
+
+            return redirect()
+                ->back()
+                ->with(
+                    'success',
+                    'Permintaan pengembalian berhasil dikirim kepada petugas.'
+                );
+
+        } catch (\Exception $e) {
+
+            return redirect()
+                ->back()
+                ->with(
+                    'error',
+                    'Terjadi kesalahan: ' . $e->getMessage()
+                );
         }
     }
 }
